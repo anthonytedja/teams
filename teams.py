@@ -68,13 +68,14 @@ INITIAL = {}
 COLORS = ['GREEN', 'RED', 'BLACK', 'WHITE', 'BLUE', 'YELLOW', 'PURPLE', 'PINK', 'ORANGE']
 LEADERS = {}
 HEADER = []
+PATH = 'sample.csv'
 
 # CSV INSTRUCTIONS
 # 
 # A NEW LINE SIGIFIES THE START OF A NEW TEAM
 # THE FIRST PLAYER IN A TEAM IS ASSUMED TEAM CAPTAIN SO TEAMS WILL ONLY HAVE ONE TEAM CAPTAIN
 # EACH ROW IS PLAYERNAME, PLAYER OFFENSE (0-10), PLAYER SUPPORT (0-10), PLAYER DEFENSE (0-10)
-with open('teams.csv', 'r') as file:
+with open(PATH, 'r') as file:
     reader = csv.reader(file)
     HEADER = next(reader)
     new = True
@@ -111,7 +112,7 @@ for x in range(FULL + 1):
         BEST_TEAM = CURR
 
         print_team(CURR, SCORE)
-        print('VAR:', VALUE, '\n')
+        print('VARIANCE:', VALUE, '\n')
 
     if x % LOOP == 0:
         print('\n', x * 100 // FULL, '% COMPLETE\n')
@@ -120,7 +121,7 @@ for x in range(FULL + 1):
     CURR = get_teams(DATA, TEAMS, SIZE)
 
 # WRITE BEST TEAM BACK TO FILE
-with open('teams.csv', 'w', newline='') as file:
+with open(PATH, 'w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(HEADER)
     writer.writerow([])
