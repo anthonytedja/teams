@@ -2,6 +2,12 @@
 
 teams partitions players into teams with minimum variance and equal skill level.
 
+## csv usage
+
+- Newline represents the start of a new team
+- First player after a newline is assumed team captain (does not change teams)
+- Player rows are filled with name, offense, support, defense rating
+
 ## sample
 
 modify the PATH to a csv file for reading and writing and run the python file to update the csv with a better team combination.
